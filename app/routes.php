@@ -84,4 +84,10 @@
 			'uses'	=> 'reportsController@reportsGet'
 			));
 
+		// register shop 
+		Route::post('registerShop',array(
+			'as'	=> 'register-shop-post',
+			'uses'	=> 'shopController@registerShop'
+			));
+
 });

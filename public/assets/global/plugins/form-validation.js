@@ -115,18 +115,9 @@ var FormValidation = function () {
                         minlength: 2,
                         required: true
                     },
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                   
-                    url: {
-                        required: true,
-                        url: true
-                    },
                     number: {
-                        required: true,
-                        number: true
+                    	minlength: 2,
+                       	required:true
                     },
                     digits: {
                         required: true,
@@ -134,11 +125,11 @@ var FormValidation = function () {
                     },
 					shopRent: {
 						required:true,
-						number:true
+						digits:true
 					},
 					shopPrepay:{
 						required: true,
-						number: true
+						digits: true
 					},
 					datepicker:{
 						required:true
