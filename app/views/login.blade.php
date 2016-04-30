@@ -43,9 +43,9 @@
 		        @endif
 		        </h2>
 		        <div class="login-wrap">
-		            <input type="text" class="form-control" placeholder="ایمیل آدرس..." name="email" autofocus>
-		            @if($errors->has('email'))
-		            <span style="color:red;">{{ $errors->first('email') }}</span>
+		            <input type="text" class="form-control" placeholder="ایمیل آدرس..." name="username" autofocus>
+		            @if($errors->has('username'))
+		            <span style="color:red;">{{ $errors->first('username') }}</span>
 		            @endif
 		            <br>
 		            <input name="password" type="password" class="form-control" placeholder="رمز ورود...">

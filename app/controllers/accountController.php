@@ -52,7 +52,6 @@ class accountController extends BaseController
 
 
 			$user 		= User::create(array(
-	
 					'username' 		=> $username,
 					'password'		=> Hash::make($password)
 				));
@@ -64,6 +63,53 @@ class accountController extends BaseController
 
 				return Redirect::route('register-get')
 						->with('global','مشکلاتی وجود دارد لطفآ دوباره کوشیش نماید!');
+			}
+		}
+	}
+
+
+
+	/*
+	| login post
+	*/ 
+	public function loginPost() {
+
+
+		$data 		= Input::all();
+
+		$messages 	= array(
+			'username.required'		=> 'اسم کاربر ضروری میباشد',
+			'password.required'		=> 'رمز ورود ضروری میباشد'
+				);
+
+		$rules 		= array(
+			'username'		=> 'required',
+			'password'		=> 'required'
+			);
+
+	 $validator 	= Validator::make($data, $rules, $messages);
+
+
+		if($validator->fails()) {
+			return Redirect::route('login-get')
+					->withErrors($validator)
+					->withInput();
+		}else {
+
+			$remember = (Input::has('remember')) ? true : false; 
+			$auth 	= Auth::attempt(array(
+
+				'username' 			=> Input::get('username'),
+				'password' 			=> Input::get('password')
+				), $remember);
+
+			if($auth) {
+				 
+				return Redirect::route('home-get');
+				 
+			}else {
+				return Redirect::route('login-get')
+						->with('global','ایمل یا پسورد اشتباه میباشد!');
 			}
 		}
 	}

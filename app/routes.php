@@ -19,10 +19,15 @@
 		'uses'	=> 'accountController@loginGet'
 		));
 
+	Route::get('/',array(
+		'as'	=> 'login-get',
+		'uses'	=> 'accountController@loginGet'
+		));
+
 	// login post route
-	Route::post('login',array(
+	Route::post('signin',array(
 		'as'	=> 'login-post',
-		'uses'	=> 'accountController@login-post'
+		'uses'	=> 'accountController@loginPost'
 		));
 
 
@@ -41,8 +46,10 @@
 
  Route::group(array('before'=> 'auth'), function(){
 
-	// home page route
-		Route::get('/',array(
+
+
+		// home page route
+		Route::get('home',array(
 			'as'	=> 'home-get',
 			'uses'	=> 'blockController@homeGet'
 			));
