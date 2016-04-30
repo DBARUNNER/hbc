@@ -43,7 +43,7 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			return Redirect::route('login-get')->with('global','اول باید وارید سیستم شوید!');
 		}
 	}
 });

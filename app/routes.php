@@ -15,7 +15,7 @@
 		
 
 	Route::get('signIn',array(
-		'uses'	=> 'login-get',
+		'as'	=> 'login-get',
 		'uses'	=> 'accountController@loginGet'
 		));
 
@@ -37,6 +37,9 @@
 		'as'	=> 'register-post',
 		'uses'	=> 'accountController@registerPost'
 		));
+
+
+ Route::group(array('before'=> 'auth'), function(){
 
 	// home page route
 		Route::get('/',array(
@@ -73,3 +76,5 @@
 			'as'	=> 'reports-get',
 			'uses'	=> 'reportsController@reportsGet'
 			));
+
+});
